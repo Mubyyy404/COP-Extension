@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "MCP Mass - Evidence Collector",
+  "version": "0.5",
+  "description": "Collects page evidence (requests, responses, screenshots) for consented users to document online abuse.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MCP Mass"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "48": "icon48.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["evidence.html", "evidence.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e8e616e0-d894-4936-a3f5-391682ee794c}",
+      "strict_min_version": "109.0"
+    }
+  }
+}

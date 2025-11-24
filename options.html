@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>MCP Mass Options</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    textarea { width: 100%; box-sizing: border-box; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h3>Keywords</h3>
+  <p>Enter one keyword per line. The content script will trigger a capture if these words are found.</p>
+  <textarea id="kw" rows="10" cols="60"></textarea><br><br>
+  <button id="save">Save Keywords</button>
+  <div id="status" style="margin-top:10px;"></div>
+  <script src="options.js"></script>
+</body>
+</html>
